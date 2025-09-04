@@ -32,7 +32,7 @@ class SyncAnimeDataWorker @AssistedInject constructor(
             }
             is NetworkResult.Error -> {
                 Log.e(TAG, "Background sync failed: ${refreshResult.exception.message}. Retrying")
-                Result.retry()
+                Result.failure()
             }
             is NetworkResult.Loading -> {
                 Log.w(TAG, "Background sync in unexpected Loading state. Retrying")
