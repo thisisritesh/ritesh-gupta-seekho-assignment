@@ -5,5 +5,5 @@ import com.kaviriteshgupta.ritesh_gupta_seekho_assignment.domain.models.AnimeDat
 sealed interface AnimeListUiState {
     data object Loading : AnimeListUiState
     data class Success(val anime: List<AnimeData>) : AnimeListUiState
-    data class Error(val message: String) : AnimeListUiState
+    data class Error(val message: String?) : AnimeListUiState
 }

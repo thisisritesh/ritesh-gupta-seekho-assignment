@@ -36,7 +36,7 @@ class SyncScheduler(private val context: Context) {
             ExistingPeriodicWorkPolicy.KEEP,
             periodicSyncRequest
         )
-        Log.i(SyncAnimeDataWorker.TAG, "Periodic background sync for anime list scheduled. Interval: 15 minutes.")
+        Log.i("AnimeListViewModel", "Periodic background sync for anime list scheduled. Interval: 15 minutes.")
     }
 
 }

@@ -14,7 +14,7 @@ import androidx.compose.ui.text.style.TextAlign
 fun ErrorScreen(errMessage: String?) {
     Box(modifier = Modifier.fillMaxSize()) {
         Text(
-            text = "Error: $errMessage",
+            text = "$errMessage",
             color = Color.Red,
             textAlign = TextAlign.Center,
             style = MaterialTheme.typography.bodyLarge,
