@@ -44,6 +44,7 @@ https://github.com/user-attachments/assets/464eaefe-d116-4d9d-a334-2d45cb3d7dab
         *   If no trailer is available, the poster image is displayed prominently in its place.
 
 **3. Local Database & Offline Mode (Room):**
+   *   **Single Source of Truth:** Made Room DB as Single Source of Truth, and using WorkManager to sync data.
    *   **Offline Caching:** All fetched anime list and detail data is stored locally in a Room database.
     *   **Offline Viewing:** Users can browse previously viewed anime lists and details even without an internet connection.
     *   **Data Synchronization:**
