@@ -60,7 +60,7 @@ https://github.com/user-attachments/assets/464eaefe-d116-4d9d-a334-2d45cb3d7dab
     *   **Dependency Injection:** Hilt is used for managing dependencies.
 
 **5. Robustness & User Experience:**
-   *   **Error Handling:** Gracefully handles network errors, API errors (e.g., 404 Not Found, 5xx Server Errors), and potential database issues. Users are informed via appropriate messages or UI states.
+   *   **Error Handling:** Gracefully handles errors, Users are informed via UI states.
     *   **Loading States:** Displays loading indicators while data is being fetched.
     *   **Empty States:** Shows informative messages if a list is empty (e.g., "No anime found").
     *   **Network Resilience:** Proactively checks for network connectivity before certain operations and relies on WorkManager for robust background syncing.
