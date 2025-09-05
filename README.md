@@ -1,4 +1,5 @@
 
+
 # Seekho App Assignment - Ritesh Gupta
 
 This Android application fetches and displays information about anime series using the public Jikan API (v4). It allows users to browse a list of top anime, view detailed information about each series, including trailers, and enjoy offline access to previously fetched data.
@@ -61,10 +62,10 @@ https://github.com/user-attachments/assets/464eaefe-d116-4d9d-a334-2d45cb3d7dab
     *   **Dependency Injection:** Hilt is used for managing dependencies.
 
 **5. Robustness & User Experience:**
-   *   **Error Handling:** Gracefully handles errors, Users are informed via UI states.
-    *   **Loading States:** Displays loading indicators while data is being fetched.
-    *   **Empty States:** Shows informative messages if a list is empty (e.g., "No anime found").
-    *   **Network Resilience:** Proactively checks for network connectivity before certain operations and relies on WorkManager for robust background syncing.
+   * Gracefully handles errors, Users are informed via UI states.
+    * Displays loading indicators while data is being fetched.
+    *    Shows informative messages if a list is empty (e.g., "No anime found").
+    *   Proactively checks for network connectivity before certain operations and relies on WorkManager for robust background syncing.
 
 **6. Modern Android Development Practices:**
    *   Written entirely in Kotlin.
@@ -73,13 +74,7 @@ https://github.com/user-attachments/assets/464eaefe-d116-4d9d-a334-2d45cb3d7dab
 
 ## Known Limitations
 
-*   **Trailer Player UI:** The current trailer playback uses a basic YouTube player integration. UI customization of the player controls is minimal.
-*   **Pagination for Top Anime:** The app currently fetches only the first page of top anime. Implementing pagination for the list screen would allow users to browse more than the initial set.
-*   **Search Functionality:** No global search functionality to find specific anime series.
-*   **Advanced Filtering/Sorting:** The anime list currently displays top anime without options for user-defined sorting or filtering (e.g., by genre, year).
-*   **Detailed Error Parsing for Specific APIs:** While generic HTTP error messages are parsed, more specific error DTOs for the Jikan API could provide even more context on failure.
-*   **WorkManager Sync for Details:** The background sync primarily focuses on the top anime list. Syncing details for all cached anime in the background is not implemented (details are refreshed on-demand or if deemed incomplete when viewing).
-*   **UI for Sync Status:** No explicit UI indication of when a background sync is in progress or its last completion status/errors, other than the data eventually updating.
-*   **Testing Coverage:** While the architecture is testable, comprehensive unit and UI tests are not yet part of this iteration.
-*   **Accessibility:** Specific accessibility improvements (e.g., detailed content descriptions beyond standard Compose defaults) have not been a primary focus in this iteration.
-
+*   Background sync with WorkManager runs every 15 minutes. If the initial data fetch fails due to a network error, the next attempt will only happen after 15 minutes, since Room is treated as the single source of truth.
+*   The cast list gets erased after every data sync because it is fetched from a separate endpoint.
+*   No "Retry" button, after network failure.
+* We’re not receiving real-time updates for network connectivity, so data is not fetched immediately when the network becomes available. Instead, we rely on WorkManager constraints.
